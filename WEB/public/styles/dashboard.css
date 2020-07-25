@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+  /* color: #626668; */
+  background: #12131f;
+  color: white;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 12px;
+}
+
+.logo {
+  width: 50px;
+  margin: 15px;
+  margin-top: 40px;
+}
+.content-wrapper {
+  margin-left: 100px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+}
+.readings {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.grid-row {
+  min-width: 100%;
+}
+
+.patient-circle {
+  background: blue;
+  color: white;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  margin: 0px 5px;
+  border-radius: 50%;
+}
+
+.card {
+  min-width: 100%;
+  /* min-height: 100%; */
+  max-height: 100%;
+  max-width: 100%;
+  margin: 10px 5px;
+  border: 0px;
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background: #222537;
+  position: relative;
+  transition: all 2.5s;
+}
+
+.card-title{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+}
+
+.card-content{
+  padding-top: 50px;
+  font-size: 1.5em;
+  padding-bottom: 40px;
+}
+
+.row-flex {
+  /* justify-content: center; */
+  flex-direction: row;
+}
+
+.patient-row{
+  width: 100%;
+  padding: 15px 0px;
+}
+.patient-status{
+  background: red;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.patient-status-row
+{
+  display: flex;
+  font-size: 1em;
+  justify-content: center;
+}
+.dashboard-heading {
+  color: white;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.appointment-card{
+  width: 100%;
+padding:15px 20px;
+
+}
+.appointment-time{
+  text-align: right;
+  color:#A2A1F9;
+}
+.patient-appointment-card{
+  width:100%;
+}
+
+#chart-0 {
+  /* z-index: -999; */
+  margin-top: -20px;
+}
+.card-body {
+  z-index: 90;
+}
+.card h3 {
+  color: #2d3744;
+  font-size: 1.2em;
+}
+.consumption {
+  color: blue;
+  height: 120px;
+}
+.cost {
+  color: red;
+  height: 120px;
+}
+.dashboard-content {
+  width: 90%;
+  margin-left: 8%;
+  padding-top: 110px;
+}
+.dash-map-container {
+  margin-left: 7%;
+  width: 92%;
+
+  margin-top: 25px;
+  border-radius: 50px;
+}
+.chart-a {
+  max-height: 40%;
+  max-width: 80%;
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+}
+#map {
+  margin-left: 100px;
+  width: calc(100vw-100px);
+  height: 100vh;
+}
+#dash-map {
+  width: 100%;
+  height: 50vh;
+}
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+#navbar-content {
+  margin-top: 20.6vh;
+}
+
+.fa {
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 5px 0px;
+  transition: color ease-in-out 0.25s;
+}
+
+.active {
+  /* font-size: 15px; */
+  pointer-events: none !important;
+  color: #1c9ee8 !important;
+}
+
+.fa:hover {
+  color: white;
+}
+
+.nav-item-name {
+  padding-left: 5px;
+  display: inline;
+}
+
+#vertical-nav {
+  height: 100vh;
+  border: 2px solid #222537;
+
+  background: #222537;
+  /*    background: white;*/
+  /* box-shadow: 10px 10px 10px rgba(55, 84, 170, 0.2), -15px -15px 10px rgba(0, 0, 0, 1), 4px 4px 20px rgba(0, 0, 0, 0.5); */
+  width: 100px;
+  z-index: 100;
+  position: fixed;
+}
+
+#top-horizontal-nav {
+  width: 101vw;
+  border: 2px solid #222537;
+
+  background: #222537;
+  /*    background: white;*/
+  /* box-shadow: 10px 10px 10px rgba(55, 84, 170, 0.2), -15px -15px 10px rgba(0, 0, 0, 1), 4px 4px 20px rgba(0, 0, 0, 0.5); */
+  height: 75px;
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.user-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 15px;
+}
+.float-md-right {
+  margin: 10px 10px;
+  display: flex;
+  align-items: center;
+  float: right;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.user-img {
+  height: 55px;
+  border-radius: 50%;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(241, 243, 246, 1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8166cd;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  .logo {
+    background: none;
+    border-radius: 50px;
+  }
+  #vertical-nav {
+    display: none;
+  }
+  .dashboard-content {
+    min-width: 100%;
+    max-width: 100vh;
+    margin: 0;
+    padding-left: 12px;
+    padding-right: 24px;
+  }
+  .patient-status{
+    width: 50%;
+  }
+  .patient-row{
+    display: flex;
+    justify-content: center;
+  }
+  canvas {
+    max-width: 100%;
+  }
+  .col-md-6 {
+    margin-top: 10px;
+  }
+  .dash-map-container {
+    margin: 10px 1%;
+    width: 96%;
+  }
+}

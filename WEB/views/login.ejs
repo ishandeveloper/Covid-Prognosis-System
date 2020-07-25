@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>Login | CPS</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../public/styles/login.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"
+      defer
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"
+      defer
+    ></script>
+  </head>
+
+  <body style="overflow: hidden;">
+    <div class="row" style="height: 100vh;">
+      <div id="left-section" class="col">
+        <img id="left-hero" src="../public/images/energy.svg" width="60%" />
+      </div>
+      <div id="right-section" class="col">
+        <div id="login-area">
+          <h2>LOGIN TO <small class="text-muted">CPS</small></h2>
+
+          <form id="login-form">
+            <input
+              class="box"
+              name="email"
+              type="text"
+              placeholder="Email or Username"
+            />
+            <input
+              class="box"
+              name="pass"
+              type="password"
+              placeholder="Password"
+            />
+            <div id="buttons">
+              <input type="submit" value="Login" class="login-btn" />
+              <!-- <button class="login-btn">Login</button> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCWlVCB0-ehVIu-Qge8Qt59ZCo9t6zm1z0",
+        authDomain: "covid-prognosis-system.firebaseapp.com",
+        databaseURL: "https://covid-prognosis-system.firebaseio.com",
+        projectId: "covid-prognosis-system",
+        storageBucket: "covid-prognosis-system.appspot.com",
+        messagingSenderId: "883250715242",
+        appId: "1:883250715242:web:6d5c8dbddc56a2b8080813",
+        measurementId: "G-XX0QGWBX1X",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+    </script>
+
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const login = event.target.email.value;
+          const password = event.target.pass.value;
+
+          firebase
+            .auth()
+            .signInWithEmailAndPassword(login, password)
+            .then(({ user }) => {
+              return user.getIdToken().then((idToken) => {
+                return fetch("/sessionLogin", {
+                  method: "POST",
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "CSRF-Token": Cookies.get("XSRF-TOKEN"),
+                  },
+                  body: JSON.stringify({ idToken }),
+                });
+              });
+            })
+            .then(() => {
+              return firebase.auth().signOut();
+            })
+            .then(() => {
+              window.location.assign("/dashboard");
+            });
+          return false;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPS | Covid Prognosis System</title>
+    <!-- bootstrap css cdn -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../public/styles/calendar.css" />
+    <link rel="stylesheet" href="../public/styles/dashboard.css" />
+  </head>
+  <body>
+    <div id="vertical-nav">
+      <center>
+        <div class="nav-logo">
+          <img class="logo" src="../public/images/logo2.png" /><br />
+          Covid<b>PS</b>
+        </div>
+        <div id="navbar-content">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" href="/dashboard"
+                ><i class="fa fa-home" style="font-size: 30px;"></i
+              ></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" href="/dashboard/map"
+                ><i class="fa fa-columns active"></i
+              ></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" href="#tournaments"
+                ><i class="fa fa-cog"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </center>
+    </div>
+    <div id="top-horizontal-nav" class="row">
+      <div class="float-md-right">
+        <div class="user-text">
+          <label style="font-weight: 800;"> Dr. Aakash Sharma </label>
+          <label style="font-size: 0.8em;"> Chest Specialist, Fortis </label>
+        </div>
+        <img src="../public/images/user.jpg" alt="" class="user-img" />
+      </div>
+    </div>
+
+    <div class="row dashboard-content">
+      <div class="col-md-3">
+        <span class="dashboard-heading">
+          Dashboard
+        </span>
+        <br />NEW PATIENTS
+        <div class="card row-flex patients-circles" style="justify-content: center; align-items: center;">
+          <% for(var i = 0; i < name.length; i++) { %>
+          <div class="patient-circle tooltip-toggle" data-tooltip="<%= name[i] %>" >
+            <%= name[i].charAt(0) %>
+          </div>
+          <% } %>
+        </div>
+
+         <div class="card" style="padding: 50px 40px;">
+          <canvas id="chart-0" style="margin-bottom: 25px;"></canvas>
+          <center>
+            <span><b style="font-size: 2em;">467</b><br />COVID CASES</span>
+          </center>
+          <div
+            class="row"
+            style="
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              margin-top: 20px;
+            "
+          >
+            <div class="col-md-6">
+              <center>
+                20<br />
+                Critical
+              </center>
+            </div>
+            <div class="col-md-6">
+              <center>447<br />Mild</center>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <span class="dashboard-heading">
+          CRITICAL
+        </span>
+        <br />PATIENTS
+        <div class="row">
+          <div class="card">
+          
+            <div class="row patient-row">
+              <div class="col-md-4 patient-status-row">Avinash Singh</div>
+              <div class="col-md-2 patient-status-row patient-status">CRITICAL</div>
+              <div class="col-md-3 patient-status-row">ICU WARD 3</div>
+              <div class="col-md-3 patient-status-row" style="color:#A2A1F9;">26 min ago</div>
+            </div>
+
+             <div class="row patient-row">
+              <div class="col-md-4 patient-status-row">Veronica </div>
+              <div class="col-md-2 patient-status-row patient-status">CRITICAL</div>
+              <div class="col-md-3 patient-status-row">ROOM 102</div>
+              <div class="col-md-3 patient-status-row" style="color:#A2A1F9;">42 min ago</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <span class="dashboard-heading">
+                UPLOAD
+              </span>
+              <br />CT / CHEST SCANS
+              <div class="upload-btn">
+                <i class="fa fa-cloud-upload" style="font-size: 7.5em;"></i>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">
+                MEDICINE TRACKER
+              </div>
+              <div class="card-content">
+               <center>
+                  <i class="fa fa-thermometer-half" style="font-size: 2.5em;" aria-hidden="true"></i>
+                <br>
+                <span style="font-size: 0.6em;padding-top:10px;">
+                No records found
+                </span>
+               </center>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-title">
+                LIST
+              </div>
+              <div class="card-content">
+                ADD LIST
+              </div>
+            </div>
+            <div class="card">
+              <div class="calendar">
+                <div class="month">
+                  <i class="fa fa-angle-left prev"></i>
+                  <div class="date">
+                    <h1></h1>
+                    <p></p>
+                  </div>
+                  <i class="fa fa-angle-right next"></i>
+                </div>
+                <div class="weekdays">
+                  <div>Sun</div>
+                  <div>Mon</div>
+                  <div>Tue</div>
+                  <div>Wed</div>
+                  <div>Thu</div>
+                  <div>Fri</div>
+                  <div>Sat</div>
+                </div>
+                <div class="days"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+
+         <span class="dashboard-heading" style="font-size: 1em;">NEW </span>APPOINTMENTS
+        <div class="card">
+          <div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in 3 hours</div>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in 3 hours</div>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in 3 hours</div>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in 3 hours</div>
+            </div>
+          </div>
+        </div>
+
+         <span class="dashboard-heading" style="font-size: 1em;">PREVIOUS </span>APPOINTMENTS
+        <div class="card">
+
+<div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in Hospital</div>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in Hospital</div>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in Hospital</div>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            Bhargav Kumar
+            <div class="row patient-appointment-card">
+              <div class="col-md-6">22 years old</div>
+            <div class="col-md-6 appointment-time" >in Hospital</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      
+      </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="../public/charts.js"></script>
+    <script src="../public/calendar.js"></script>
+  </body>
+</html>
